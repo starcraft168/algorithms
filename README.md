@@ -2,7 +2,7 @@
 Some awesome algorithms written in JavaScript!
 
 ##Description
-A collection of basic and advanced data structures and algorithms based on Thomas Cormen's book on Algorithm and loosely based on Stanford's CS106B course - all written in JavaScript. Also included are some functional programming based on the underscore.js library
+A collection of basic and advanced data structures and algorithms based on Thomas Cormen's book on Algorithms and loosely based on Stanford's CS106B course - all written in JavaScript. Also included are some functional programming based on the underscore.js library
 
 ![picture alt] (http://ecx.images-amazon.com/images/I/51eDwv7tCtL._SX442_BO1,204,203,200_.jpg)
 
