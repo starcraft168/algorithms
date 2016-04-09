@@ -33,4 +33,6 @@ A collection of basic and advanced data structures and algorithms based on Thoma
 * Greedy Algorithms
 * Dynamic Programming
 
+##Credits
 
+These algorithms were written in JavaScript by Eric Eng
