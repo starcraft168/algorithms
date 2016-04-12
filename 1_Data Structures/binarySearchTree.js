@@ -2,6 +2,7 @@ var BinarySearchTree = function(value) {
 	this.value = value;
 	this.left = null;
 	this.right = null;
+	//
 };
 
 
