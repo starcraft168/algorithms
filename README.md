@@ -1,8 +1,8 @@
 # algorithms
-Some awesome algorithms written in JavaScript!
+Here are some awesome algorithms written in JavaScript. Most university teach Python or Java to demonstrate algorithm concepts, but they can be written in any language! In particular, there are some tricky things about the JavaScript language that can better be understood by writing important data structures and algorithms. Enjoy at your leisure!
 
 ##Description
-A collection of basic and advanced data structures and algorithms based on Thomas Cormen's book on Algorithms and loosely based on Stanford's CS106B course - all written in JavaScript. Also included are some functional programming based on the underscore.js library
+A collection of basic and advanced data structures and algorithms based on Thomas Cormen's book on Algorithms and loosely based on Stanford's CS106B course - all written in JavaScript. Also included are some functional programming based on the underscore.js library.
 
 ![picture alt] (http://ecx.images-amazon.com/images/I/51eDwv7tCtL._SX442_BO1,204,203,200_.jpg)
 
