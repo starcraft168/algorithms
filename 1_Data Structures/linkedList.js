@@ -1,55 +1,82 @@
-var LinkedList = function(){
-  var list = {};
-  list.head = null;
-  list.tail = null;
-
-  list.addToTail = function(value) {
-    var node = Node(value); //create a new node
-
-    if(list.tail !== null) {
-      var prevNode = list.tail; //if the tail is already pointing at a previous node,
-      prevNode.next = node; //then make the previous node point at the newly created node
-    }
-
-    list.tail = node; //point the tail to the newly created node
-
-    if(list.head === null) {
-      list.head = node; //if the head is pointing to null, then make it point to the newly created node
-    }
-  };
-
-  list.removeHead = function() {
-    if(list.head !== null) {
-      var currentNode = list.head; //if the head is already pointing at a node, 
-      list.head = currentNode.next; //then make the head point at the node's next node
-    }
-  };
-
-  list.contains = function(target) {
-    var subRoutine = function(node) {
-      if(node.value === target) {
-        return true;
-      }
-      if(node.next === null) {
-        return false;
-      }
-      subRoutine(node.next);      
-    }
-    subRoutine(list.head); //start with the head and start traversing the LinkedList
-  };
-
-  return list;
+var LinkedList = function() {
+  this.head = null;
+  this.tail = null;
 };
 
-var Node = function(value){
-  var node = {};
+LinkedList.prototype.addToTail = function(value) {
+  var newNode = this.makeNode(value);
+  
+  if(this.head === null) {
+    this.head = newNode;
+    return;
+  } 
+  
+  var head = this.head;
+  
+  //traverses through the linkedlist, starting with the head
+  var subRoutine = function(node) {
+    if(node.next === null) {
+      node.next = newNode;
+    } else {
+      subRoutine(node.next);
+    }
+    
+  };
+  subRoutine(head);
+  
+  //the tail will always be the last node, or the newly created node
+  this.tail = newNode;
+};
 
+LinkedList.prototype.removeHead = function() {
+  var nextNode = this.head.next;
+  this.head = nextNode;
+};
+
+LinkedList.prototype.contains = function(target) {
+  var head = this.head;
+  
+  var subRoutine = function(node) {
+    if(node.value === target) {
+      return true;
+    } else if (node.next !== null){
+      return subRoutine(node.next);
+    }
+    return false;
+  };
+  return subRoutine(head);
+  
+};
+
+
+LinkedList.prototype.makeNode = function(value) {
+  var node = {};
   node.value = value;
   node.next = null;
-
   return node;
+  
 };
 
+
+
+var linklist = new LinkedList();
+linklist.addToTail(5);
+linklist.addToTail(6);
+linklist.addToTail(7);
+linklist.addToTail(8);
+console.log(linklist.head.value);
+console.log(linklist.head.next.value);
+console.log(linklist.head.next.next.value);
+console.log(linklist.head.next.next.next.value);
+console.log(linklist.tail.value);
+
+linklist.removeHead();
+console.log(linklist.head.value);
+console.log(linklist.head.next.value);
+console.log(linklist.head.next.next.value);
+
+console.log(linklist.contains(6));
+
 /*
- * Complexity: What is the time complexity of the above functions?
+ * Complexity: What is the time complexity of the above functions? Linear
  */
