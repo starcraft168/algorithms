@@ -1,61 +1,52 @@
 var BinarySearchTree = function(value) {
-	this.value = value;
-	this.left = null;
-	this.right = null;
+  this.value = value;
+  this.left = null;
+  this.right = null;
 };
 
+BinarySearchTree.prototype.insert = function(value) {
+  var node = new BinarySearchTree(value);
+  
+  if(node.value === this.value) {
+    return;
+  }
 
-BinarySearchTree.prototype.insert = function(node) {
-	var subRoutine = function(node) {
-		if(this.right === null && node.value > this.value) {
-			this.right = node;
-		} else if(this.left === null && node.value < this.value) {
-			this.left = node;
-		} else if(this.right !== null && node.value > this.value) {
-			subRoutine(this.right);
-		} else if(this.left !== null && node.value < this.value) {
-			subRoutine(this.left);
-		}		
-	}
-	subRoutine(this);
+  if(node.value > this.value && this.right === null) {
+    this.right = node;
+  } else if(node.value < this.value && this.left === null) {
+    this.left = node;
+  } else if(node.value > this.value && this.right !== null) {
+    this.right.insert(value);
+  } else if(node.value < this.value && this.left !== null) {
+    this.left.insert(value);
+  }
 };
 
-BinarySearchTree.prototype.contains = function(node) {
-	var subRoutine = function() {
-		if(this.value === node.value) {
-			return true;
-		} else if(node.value > this.value && this.right === null) {
-			return false;
-		} else if(node.value < this.value && this.left === null) {
-			return false;
-		} else if(node.value > this.value && this.right !== null) {
-			subRoutine(this.right);
-		} else if(node.value < this.value && this.left !== null) {
-			subRoutine(this.left);
-		}
-	}
-	subRoutine(this);
+BinarySearchTree.prototype.traverse = function(target) {
+  if(this.value === target) {
+    return true;
+  } else if(target > this.value && this.right === null) {
+    return false;
+  } else if(target < this.value && this.left === null) {
+    return false;
+  } else if(target > this.value && this.right !== null) {
+    return this.right.traverse(target);
+  } else if(target < this.value && this.left !== null) {
+    return this.left.traverse(target);
+  }
 };
 
-BinarySearchTree.prototype.depthFirstLog = function(callback) {	
-	var subRoutine = function() {
-		if(this.value !== null) {
-			callback(this.value);
-		} 
-		if(this.right !== null && this.left == null) {
-			subRoutine(this.right);
-		}
-		if(this.right !== null && this.left !== null) {
-			subRoutine(this.right); //fix this
-			subRoutine(this.left);
-		}
-		if(this.right === null && this.left !== null) {
-			subRoutine(this.left);
-		}
-	}
-	subRoutine(this);
-};
+var tree = new BinarySearchTree(8);
+tree.insert(3);
+tree.insert(10);
+tree.insert(18);
+tree.insert(13);
+console.log(tree.value);
+console.log(tree.right.value);
+console.log(tree.left.value);
+console.log(tree.right.right.value);
+console.log(tree.right.right.left.value);
+console.log(tree.traverse(15)); //false
+console.log(tree.traverse(18)); //true
 
-/*
- * Complexity: What is the time complexity of the above functions?
- */
+
