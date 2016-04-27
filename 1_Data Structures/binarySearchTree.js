@@ -9,9 +9,7 @@ BinarySearchTree.prototype.insert = function(value) {
   
   if(node.value === this.value) {
     return;
-  }
-
-  if(node.value > this.value && this.right === null) {
+  } else if(node.value > this.value && this.right === null) {
     this.right = node;
   } else if(node.value < this.value && this.left === null) {
     this.left = node;
@@ -26,7 +24,7 @@ BinarySearchTree.prototype.traverse = function(target) {
   if(this.value === target) {
     return true;
   } else if(target > this.value && this.right === null) {
-    return false;
+    return false; //instead of setting this to another, simply return false!
   } else if(target < this.value && this.left === null) {
     return false;
   } else if(target > this.value && this.right !== null) {
