@@ -24,7 +24,7 @@ BinarySearchTree.prototype.traverse = function(target) {
   if(this.value === target) {
     return true;
   } else if(target > this.value && this.right === null) {
-    return false; //instead of setting this to another, simply return false!
+    return false; //instead of setting this to another node, simply return false!
   } else if(target < this.value && this.left === null) {
     return false;
   } else if(target > this.value && this.right !== null) {
