@@ -33,7 +33,14 @@ var binarySearch = function (array, target) {
 };
 
 
+
 var feature = function() {
+
+var staging = function() {
+
+}
+
+var stuff = function() {
 	
 }
 
