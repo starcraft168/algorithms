@@ -1,4 +1,4 @@
-/* Feature dude
+/* Feature dude 
  * Given a sorted array, find the index of an element
  * using a binary search algorithm.
  *
@@ -14,8 +14,8 @@ var binarySearch = function (array, target) {
   var bottom = 0;
   var middle = Math.floor((top + bottom)/2); // 6
 
-  var subRoutine = function() {
-	  if(array[middle] === target) {
+  var subRoutineFeature = function() {
+	  if() {
 	  		return middle;
 	  } else if(array[middle] < target) { //target is greater than middle
 	  		middle++;
@@ -31,6 +31,7 @@ var binarySearch = function (array, target) {
   }; //otherwise it may result in undefined
   return subRoutine();
 };
+
 
 var feature = function() {
 	
