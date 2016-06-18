@@ -1,4 +1,4 @@
-/* STAGING HERE
+/* Feature dude
  * Given a sorted array, find the index of an element
  * using a binary search algorithm.
  *
@@ -32,6 +32,9 @@ var binarySearch = function (array, target) {
   return subRoutine();
 };
 
+var feature = function() {
+	
+}
 
 /*
 
