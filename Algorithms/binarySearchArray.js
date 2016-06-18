@@ -33,6 +33,14 @@ var binarySearch = function (array, target) {
 };
 
 
+var staging = function() {
+
+}
+
+var stuff = function() {
+	
+}
+
 /*
 
 The list must first be sorted. 
