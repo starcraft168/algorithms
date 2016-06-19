@@ -4,6 +4,8 @@ Here are some awesome algorithms written in JavaScript. Most university teach Py
 ##Description
 A collection of basic and advanced data structures and algorithms based on Thomas Cormen's book on Algorithms and loosely based on Stanford's CS106B course - all written in JavaScript. There are a total of 21 data structures and algorithms. As a bonus, I've also included some functional programming based on the underscore.js library.
 
+UPDATE: I've included some interesting algorithm problems to tackle under the /Problems directory
+
 ![picture alt] (http://ecx.images-amazon.com/images/I/51eDwv7tCtL._SX442_BO1,204,203,200_.jpg)
 
 ##List of Data Structures and Algorithms
