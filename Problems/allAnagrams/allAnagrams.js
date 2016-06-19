@@ -13,7 +13,8 @@
   */
 
 var allAnagrams = function(string) {
-
-	
+	for(var i=0; i<string.length; i++) {
+		var letter = string[i];
+	}
 	
 };
