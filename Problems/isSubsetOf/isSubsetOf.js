@@ -22,6 +22,19 @@
  * including non-strings.
 */
 
-Array.prototype.isSubsetOf = function(array){
-  // Your code here
+Array.prototype.isSubsetOf = function(array) {
+	var arr = this;
+
+	var obj = {};
+	for(var i=0; i<array.length; i++) {
+		obj[array[i]] = true; 
+	}
+
+	for(var i=0; i<arr.length; i++) {
+		if(!(arr[i] in obj)) {
+			return false;
+		}
+	}
+
+	return true;
 };
