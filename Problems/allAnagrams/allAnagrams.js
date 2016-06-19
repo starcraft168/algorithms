@@ -13,5 +13,5 @@
   */
 
 var allAnagrams = function(string) {
-  // Your code here.
+	
 };
