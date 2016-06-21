@@ -38,6 +38,11 @@
 
 var characterFrequency = function(string) {
 
+  	var countObj = countCharacters(string);
+	var array = transformObject(countObj);
+	var result = sortArray(array);
+  	return result;
+
 	function countCharacters(string) {
 		var obj = {};
 		for(var i=0; i<string.length; i++) {
@@ -58,8 +63,26 @@ var characterFrequency = function(string) {
 		return arr;
 	}
 
-	var countObj = countCharacters(string);
-	var result = transformObject(countObj);
+	function sortArray(array) {
+		while(!sorted(array)) {
+			for(var i=0; i<(array.length-1); i++) {
+				if(array[i][1] < array[i+1][1]) {
+					var temp = array[i+1];
+					array[i+1] = array[i];
+					array[i] = temp;
+				}				
+			}
+		}
+		return array;
+	}
 
-  	return result;
+	function sorted(array) {
+		for(var i=0; i<(array.length-1); i++) {
+			if(array[i][1] < array[i+1][1]) {
+				return false;
+			}
+		}
+		return true;
+	}
+    
 };
