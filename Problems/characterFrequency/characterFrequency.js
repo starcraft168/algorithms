@@ -50,18 +50,16 @@ var characterFrequency = function(string) {
 		return obj;
 	}
 
-	var countObj = countCharacters(string);
-
-	function transformObject(countObj) {
+	function transformObject(obj) {
 		var arr = [];
 		for(var key in obj) {	
-			arr.push([obj[key],key]);
+			arr.push([key, obj[key]]);
 		}
 		return arr;
 	}
 
-	var result = countCharacters(countObj);
+	var countObj = countCharacters(string);
+	var result = transformObject(countObj);
 
-
-  	// return result;
+  	return result;
 };
