@@ -37,16 +37,30 @@
 
 
 var characterFrequency = function(string) {
-	var obj = {};
-	for(var i=0; i<string.length; i++) {
-		if(!(string[i] in obj)) {
-			obj[string[i]] = 1;
-		} else {
-			obj[string[i]]++;
-		}
-	}
-	return obj;
 
+	function countCharacters(string) {
+		var obj = {};
+		for(var i=0; i<string.length; i++) {
+			if(!(string[i] in obj)) {
+				obj[string[i]] = 1;
+			} else {
+				obj[string[i]]++;
+			}
+		}
+		return obj;
+	}
+
+	var countObj = countCharacters(string);
+
+	function transformObject(countObj) {
+		var arr = [];
+		for(var key in obj) {	
+			arr.push([obj[key],key]);
+		}
+		return arr;
+	}
+
+	var result = countCharacters(countObj);
 
 
   	// return result;
