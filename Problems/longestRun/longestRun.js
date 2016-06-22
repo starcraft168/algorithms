@@ -27,4 +27,5 @@ var randomString = function (len) {
   }
 
   return text;
+  //
 };
