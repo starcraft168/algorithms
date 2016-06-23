@@ -14,7 +14,14 @@
 
 var longestRun = function (string) {
   // TODO: Your code here!
-  
+  function check(string) {
+  		var i = 0;
+  		while(true) {
+	  		if(string[i] === string[i+1]) {
+	  			i++;
+	  		}
+  		}
+  }
 
   
 
