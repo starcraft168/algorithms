@@ -1,5 +1,5 @@
 /**
- * Write a function that, given a string, Finds the longest run of identical
+ * Write a function that, given a string, finds the longest run of identical
  * characters and returns an array containing the start and end indices of
  * that run. If there are two runs of equal length, return the first one.
  * For example:
@@ -14,16 +14,51 @@
 
 var longestRun = function (string) {
   // TODO: Your code here!
+
   function check(string) {
+  		var count = 1;
   		var i = 0;
-  		while(true) {
+      var tracker = {};
+    
+  		while(i<string.length) {
 	  		if(string[i] === string[i+1]) {
+	  			count++;
 	  			i++;
+	  		} else {
+	  			tracker[string[i]] = count;
+	  			count = 1;
+            i++;
 	  		}
   		}
+  		return tracker;
   }
 
-  
+  function computeTracker(tracker) {
+  		var count = 0;
+  		var letter = '';
+  		var result = [];
+  		for(var key in tracker) {
+  			if(tracker[key] > count) {
+  				count = tracker[key];
+  				letter = key;
+  			}
+  		}
+      
+     console.log(letter);
+     console.log(count);
+
+  		var first = string.indexOf(letter);
+  		var last = first + count - 1;
+  		result.push(first);
+  		result.push(last);
+      console.log(first, last);
+  		return result;
+  }
+
+  var tracker = check(string);
+  var result = computeTracker(tracker);
+  return result;
+
 
 };
 
