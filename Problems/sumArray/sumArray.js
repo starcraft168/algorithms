@@ -11,4 +11,21 @@
 
 // Solved in O(n) time with O(1) memory
 var sumArray = function(array) {
+	var results = [];
+	var sum = 0;
+
+	for(var i=0; i<array.length; i++) {
+		sum += array[i];
+		results.push(sum);
+	}
+
+	var highest = 0;
+
+	for(var i=0; i<results.length; i++) {
+		if(results[i] > highest) {
+			highest = results[i];
+		}
+	}
+
+	return highest;
 };
