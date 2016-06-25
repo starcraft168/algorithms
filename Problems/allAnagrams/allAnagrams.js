@@ -13,12 +13,20 @@
   */
 
 var allAnagrams = function(string) {
-	var array = [];
-
-	var word = '';
-	for(var i=0; i<string.length; i++) {
-		var letter = string[i];
-		
-	}
+	var obj = {};
 	
+	function subRoutine(word, string) {
+		if(string === '') {
+			obj[word] = true;
+		}
+
+		for(var i=0; i<string.length; i++) {
+			subRoutine(word + string[i], string.slice(0, i) + string.slice(i+1, string.length + 1));
+		}
+	}
+    subRoutine('',string);
+
+	return Object.keys(obj);
 };
+      
+console.log(allAnagrams('abc'));
