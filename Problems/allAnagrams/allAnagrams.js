@@ -30,3 +30,12 @@ var allAnagrams = function(string) {
 };
       
 console.log(allAnagrams('abc'));
+
+/*
+Explanation:
+
+Basically each letter in the string is getting popped out and added to the word.
+Each letter in the resulting string is getting popped out and added to the word.
+This recursion happens over and over again until the string is empty, which ends 
+the recursion. And then we can return the word.
+*/
