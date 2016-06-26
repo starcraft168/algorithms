@@ -43,4 +43,54 @@ var phoneDigitsToLetters = {
 
 var telephoneWords = function(digitString) {
   // TODO: return every combination that can be spelled on a phone with these digits
+
+  var storage = [];
+
+  (function addToStorage(digitString) {
+    for(var i=0; i<digitString.length; i++) {
+      var letters = phoneDigitsToLetters[digitString[i]];
+      storage.push(letters);
+    }    
+  })(digitString);
+
+  var words = [];
+
+  function subRoutine(word, leftover) {
+    if(leftover.length === 0) {
+      words.push(word);
+      return;
+    }
+
+    var letters = leftover[0]; //does not work if leftover is storage
+    var remaining = leftover.slice(1); //does not work if leftover is storage
+    for(var i=0; i<letters.length; i++) {
+      subRoutine(word + letters[i], remaining);
+    }
+  }
+  subRoutine('', storage);
+
+  return words;
+
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
