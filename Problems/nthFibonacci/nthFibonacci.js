@@ -22,7 +22,18 @@
 
 var nthFibonacci = function (n) {
   // TODO: implement me!
-};
+  var sum = 0;
 
+  function add(n) {
+  		if(n===0) {
+  			return;
+  		}
+  		sum += n;
+  		add(n-1);
+  }
+ 
+  add(n);
+  return sum;
+};
 
 
