@@ -14,9 +14,9 @@ BinarySearchTree.prototype.insert = function(value) {
   } else if(node.value < this.value && this.left === null) {
     this.left = node;
   } else if(node.value > this.value && this.right !== null) {
-    this.right.insert(value);
+    this.right.insert(node.value); 
   } else if(node.value < this.value && this.left !== null) {
-    this.left.insert(value);
+    this.left.insert(node.value); 
   }
 };
 
