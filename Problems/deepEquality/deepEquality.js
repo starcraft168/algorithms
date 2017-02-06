@@ -17,6 +17,9 @@ var deepEquals = function(apple, orange) {
   var arr2 = [];
   function flatten1(val) {
     for(var key in val) {
+      if(val[key] === undefined) {
+        return;
+      }
       if(typeof val[key] === 'object') {
         flatten1(val[key]);
       } else {
@@ -48,10 +51,10 @@ var deepEquals = function(apple, orange) {
   flatten2(orange);
 
   console.log(arr1);
+  console.log(arr2);
 
-  // compareArrays(arr1, arr2);
+  return compareArrays(arr1, arr2);
 };
-console.log(deepEquals({a:1, b: {c:3}}));
-// console.log(deepEquals({a:1, b: {c:3}}, {a:1, b: {c:3}}));
-// console.log(deepEquals({a:1, b: {c:5}}, {a:1, b: {c:6}}));
+console.log(deepEquals({a:1, b: {c:3}}, {a:1, b: {c:3}}));
+console.log(deepEquals({a:1, b: {c:5}}, {a:1, b: {c:6}}));
 
