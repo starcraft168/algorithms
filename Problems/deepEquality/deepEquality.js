@@ -12,19 +12,30 @@
   *
   */
 var deepEquals = function(apple, orange) {
-  var arr = [];
-  
-  function check(val) {
+
+  var arr1 = [];
+  var arr2 = [];
+  function flatten1(val) {
     for(var key in val) {
       if(typeof val[key] === 'object') {
-        check(val[key]);
+        flatten1(val[key]);
       } else {
-        arr.push(val[key]);
+        arr1.push(val[key]);
       }
     }
   }
 
-  function checkArrays(arr1, arr2) {
+  function flatten2(val) {
+    for(var key in val) {
+      if(typeof val[key] === 'object') {
+        flatten2(val[key]);
+      } else {
+        arr2.push(val[key]);
+      }
+    }
+  }
+
+  function compareArrays(arr1, arr2) {
     for(var i=0; i<arr1.length; i++) {
       if(arr1[i] !== arr2[i]) {
         return false;
@@ -33,12 +44,14 @@ var deepEquals = function(apple, orange) {
     return true;
   }
 
-  checkArrays(arr1, arr2);
-  check(apple);
-  return arr;
+  flatten1(apple);
+  flatten2(orange);
 
+  console.log(arr1);
+
+  // compareArrays(arr1, arr2);
 };
-
+console.log(deepEquals({a:1, b: {c:3}}));
 // console.log(deepEquals({a:1, b: {c:3}}, {a:1, b: {c:3}}));
 // console.log(deepEquals({a:1, b: {c:5}}, {a:1, b: {c:6}}));
-console.log(deepEquals({a:1, b: {c:3}}));
+
