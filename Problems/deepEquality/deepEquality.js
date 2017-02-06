@@ -11,5 +11,8 @@
   * don't worry about handling cyclical object structures.
   *
   */
-var deepEquals = function(apple, orange){
+var deepEquals = function(apple, orange) {
+  return 'hey';
 };
+
+console.log(deepEquals());
