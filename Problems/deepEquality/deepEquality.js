@@ -15,4 +15,6 @@ var deepEquals = function(apple, orange) {
   return 'hey';
 };
 
-console.log(deepEquals());
+console.log(deepEquals({a:1, b: {c:3}},{a:1, b: {c:3}}));
+console.log(deepEquals({a:1, b: {c:5}},{a:1, b: {c:6}}));
+
